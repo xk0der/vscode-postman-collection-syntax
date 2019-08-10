@@ -1,0 +1,28 @@
+{
+    "name": "postman-collection",
+    "displayName": "postman-log-syntax",
+    "description": "",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.36.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "postman_collection",
+            "aliases": ["Postman Collection", "postmancollection"],
+            "extensions": [".postman_collection.json"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "postman_collection",
+            "scopeName": "source.postman_collection.json",
+            "path": "./syntaxes/collection.tmLanguage.json",
+            "embeddedLanguages": {
+                "meta.embedded.block.javascript": "source.js"
+            }
+        }]
+    }
+}

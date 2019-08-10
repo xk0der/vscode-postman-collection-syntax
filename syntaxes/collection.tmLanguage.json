@@ -1,0 +1,193 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Postman Logs",
+	"scopeName": "source.postman_collection.json",
+	"patterns": [
+		{
+			"include": "#sections"
+		},
+		{
+			"include": "#execblock"
+		}
+	],
+	"repository": {
+		"sections": {
+			"patterns": [
+				{
+					"match": "\"(_postman_id|variable|raw|response|protocol|formdata|mode|body|host|schema|script|info|item|name|event|id|listen|request|auth|type|basic|url|header|method|path|query|key|value|disabled)\"(:)(\\s*\"?(.*)\"?)?",
+					"captures": {
+						"0": {
+							"name": "string.quoted.double"
+						},
+						"1": {
+							"name": "support.function.section"
+						},
+						"2": {
+							"name": "comment.line.number-sign"
+						},
+						"3": {
+							"name": "support.type",
+							"patterns": [
+								{
+									"include": "#datatype"
+								},
+								{
+									"include": "#jsbrackets"
+								},
+								{
+									"include": "#jsdot"
+								},
+								{
+									"include": "#number"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		"datatype": {
+			"match": "(GET|POST|DELETE|PUT|OPTIONS|HEAD)|(true|false)|([a-fA-F0-9]{8,8}-[a-fA-F0-9]{4,4}-[a-fA-F0-9]{4,4}-[a-fA-F0-9]{4,4}-[a-fA-F0-9]{12,12})",
+			"captures": {
+				"0": {
+					"name": "comment.line.number-sign"
+				},
+				"1": {
+					"name": "constant.language"
+				},
+				"2": {
+					"name": "support.type.property-name"
+				}
+			}
+		},
+		"execblock": {
+			"begin": "\"(exec)\":\\s*(\\{)",
+			"end": "(\\})",
+			"beginCaptures": {
+				"1": {
+					"name": "constant.numeric"
+				},
+				"0": {
+					"name": "string.quoted.double"
+				},
+				"2": {
+					"name": "support.variable"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "support.variable"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#scriptlines"
+				}
+			]
+		},
+		"scriptlines": {
+			"match": "\"(.*)\"",
+			"captures": {
+				"0": {
+					"name": "constant.character"
+				},
+				"1": {
+					"patterns": [
+						{
+							"include": "#js"
+						}
+					]
+				}
+			}
+		},
+		"js": {
+			"match": "(.*)",
+			"captures": {
+				"1": {
+					"patterns": [
+						{
+							"include": "#jswords"
+						},
+						{
+							"include": "#jsoperators"
+						},
+						{
+							"include": "#jsstrings"
+						},
+						{
+							"include": "#jsdot"
+						},
+						{
+							"include": "#jsbrackets"
+						},
+						{
+							"include": "#jsoperator"
+						}
+					]
+				}
+			}
+		},
+		"jswords": {
+			"match": "(\\w)\\s*(\\w)*",
+			"captures": {
+				"0": {
+					"patterns": [
+						{
+							"include": "#jskeywords"
+						}
+					]
+				}
+			}
+		},
+		"jskeywords": {
+			"match": "\\b(if|let|else|for|do|while|var)\\b",
+			"captures": {
+				"0": {
+					"name": "keyword.control"
+				}
+			}
+		},
+		"jsoperators": {
+			"match": "(==|===|=|<|>|!|\\?|\\*|\\+|-|\\\\|%|\\^|\\$)",
+			"captures": {
+				"0": {
+					"name": "keyword.operator.new"
+				}
+			}
+		},
+		"jsdot": {
+			"match": "[.]",
+			"captures": {
+				"0": {
+					"name": "comment.block.documentation"
+				}
+			}
+		},
+		"jsstrings": {
+			"match": "\\\".*\\\"",
+			"captures": {
+				"0": {
+					"name": "string.quoted.double"
+				}
+			}
+		},
+		"jsbrackets": {
+			"match": "(\\[|\\])|(\\(|\\))|({|})",
+			"captures": {
+				"0": {
+					"name": "string.quoted.single"
+				},
+				"2": {
+					"name": "comment.block.documentation"
+				},
+				"1": {
+					"name": "support.function.section"
+				}
+			}
+		},
+		"number": {
+			"match": "\\b([0-9]+(\\.[0-9])?)\\b",
+			"captures": { "1": {"name": "invalid.illegal"} }
+		}
+	}
+}
