@@ -1,6 +1,6 @@
 {
     "name": "postman-collection",
-    "displayName": "postman-log-syntax",
+    "displayName": "Postman Collection Syntax Highlighter",
     "description": "",
     "version": "0.0.1",
     "engines": {
