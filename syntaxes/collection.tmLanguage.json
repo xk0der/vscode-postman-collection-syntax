@@ -4,11 +4,15 @@
 	"scopeName": "source.postman_collection.json",
 	"patterns": [
 		{
-			"include": "#sections"
+			"include": "#execblock"
 		},
 		{
-			"include": "#execblock"
+			"include": "#arrayblock"
+		},
+		{
+			"include": "#sections"
 		}
+		
 	],
 	"repository": {
 		"sections": {
@@ -85,6 +89,57 @@
 				}
 			]
 		},
+		"arrayblock": {
+			"begin": "\"([a-zA-Z_]+)\":\\s*(\\[)",
+			"end": "(\\])",
+			"beginCaptures": {
+				"1": {
+					"name": "constant.numeric"
+				},
+				"0": {
+					"name": "string.quoted.double"
+				},
+				"2": {
+					"name": "support.variable"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "support.variable"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#execblock"
+				},
+				{
+					"include": "#sections"
+				},
+				{
+					"include": "#datalines"
+				}
+			]
+		},
+		"datalines": {
+			"match": "\"(.*)\",?",
+			"captures": {
+				"0": {
+					"name": "support.type"
+				},
+				"1": {
+					"name": "constant.numeric",
+					"patterns": [
+						{
+							"include": "#jsbrackets"
+						},
+						{
+							"include": "#jsdot"
+						}
+					]
+				}
+			}
+			
+		},
 		"scriptlines": {
 			"match": "\"(.*)\"",
 			"captures": {
@@ -151,7 +206,7 @@
 			}
 		},
 		"jskeywords2": {
-			"match": "\\b(function|console)\\b",
+			"match": "\\b(function|console|typeof)\\b",
 			"captures": {
 				"1": {
 					"name": "support.function"
@@ -164,11 +219,13 @@
 		"jsobject": {
 			"match": "([a-zA-Z_][a-zA-Z0-9_]*)\\.",
 			"captures": {
-				"0": {
-					"name": "support.function"
-				},
 				"1": {
-					"name": "support.variable"
+					"name": "support.variable",
+					"patterns": [
+						{
+							"include": "#jskeywords2"
+						}
+					]
 				}
 			}
 		},
