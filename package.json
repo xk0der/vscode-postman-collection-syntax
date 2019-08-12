@@ -10,19 +10,44 @@
         "Programming Languages"
     ],
     "contributes": {
-        "languages": [{
-            "id": "postman_collection",
-            "aliases": ["Postman Collection", "postmancollection"],
-            "extensions": [".postman_collection.json"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "postman_collection",
-            "scopeName": "source.postman_collection.json",
-            "path": "./syntaxes/collection.tmLanguage.json",
-            "embeddedLanguages": {
-                "meta.embedded.block.javascript": "source.js"
+        "languages": [
+            {
+                "id": "postman_collection",
+                "aliases": [
+                    "Postman Collection",
+                    "postmancollection"
+                ],
+                "extensions": [
+                    ".postman_collection.json"
+                ],
+                "configuration": "./postman_collection-language-configuration.json"
+            },
+            {
+                "id": "postman_log",
+                "aliases": [
+                    "Postman Logs",
+                    "postmanlog"
+                ],
+                "extensions": [
+                    ".log"
+                ],
+                "configuration": "./postman_log-language-configuration.json"
             }
-        }]
+        ],
+        "grammars": [
+            {
+                "language": "postman_collection",
+                "scopeName": "source.postman_collection.json",
+                "path": "./syntaxes/collection.tmLanguage.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.javascript": "source.js"
+                }
+            },
+            {
+                "language": "postman_log",
+                "scopeName": "source.postman_log",
+                "path": "./syntaxes/log.tmLanguage.json"
+            }
+        ]
     }
 }
