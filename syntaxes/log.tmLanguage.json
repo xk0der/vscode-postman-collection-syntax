@@ -106,7 +106,7 @@
 			}
 		},
 		"symbols": {
-			"match":"[:~,&=]|-",
+			"match":"[:~,&=]|-|\\\\|\\/|\\.",
 			"captures": {
 				"0": {
 					"name": "string.quoted.double"
