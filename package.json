@@ -1,8 +1,26 @@
 {
-    "name": "postman-collection",
+    "name": "vsc-postman-collection-syntax",
     "displayName": "Postman Collection Syntax Highlighter",
     "description": "",
     "version": "0.0.1",
+    "icon": "Postman-Collection.png",
+	"license": "MIT",
+	"publisher": "xk0der",
+	"author": {
+		"name": "xk0der",
+		"email": "amit@xkoder.com",
+		"url": "https://xkoder.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/xk0der/vscode-postman-log-syntax.git"
+	},
+	"keywords": [
+		"Postman",
+		"Collection",
+        "Syntax",
+        "API"
+	],
     "engines": {
         "vscode": "^1.36.0"
     },
