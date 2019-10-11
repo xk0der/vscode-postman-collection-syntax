@@ -1,9 +1,5 @@
 # Change Log
 
-All notable changes to the "postman-collection" extension will be documented in this file.
+## [0.0.1]
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
-
-- Initial release
+- [xk0der] Initial release
