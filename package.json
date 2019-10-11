@@ -1,9 +1,9 @@
 {
-    "name": "vsc-postman-collection-syntax",
-    "displayName": "Postman Collection Syntax Highlighter",
-    "description": "",
-    "version": "0.0.1",
-    "icon": "Postman-Collection.png",
+	"name": "vsc-postman-collection-syntax",
+	"displayName": "Postman Collection Syntax Highlighter",
+	"description": "",
+	"version": "0.0.1",
+	"icon": "Postman-Collection.png",
 	"license": "MIT",
 	"publisher": "xk0der",
 	"author": {
@@ -18,38 +18,43 @@
 	"keywords": [
 		"Postman",
 		"Collection",
-        "Syntax",
-        "API"
+		"Syntax",
+		"API"
 	],
-    "engines": {
-        "vscode": "^1.36.0"
-    },
-    "categories": [
-        "Programming Languages"
-    ],
-    "contributes": {
-        "languages": [
-            {
-                "id": "postman_collection",
-                "aliases": [
-                    "Postman Collection",
-                    "postmancollection"
-                ],
-                "extensions": [
-                    ".postman_collection.json"
-                ],
-                "configuration": "./postman_collection-language-configuration.json"
-            }
-        ],
-        "grammars": [
-            {
-                "language": "postman_collection",
-                "scopeName": "source.postman_collection.json",
-                "path": "./syntaxes/collection.tmLanguage.json",
-                "embeddedLanguages": {
-                    "meta.embedded.block.javascript": "source.js"
-                }
-            }
-        ]
-    }
+	"engines": {
+		"vscode": "^1.36.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "postman_collection",
+				"aliases": [
+					"Postman Collection",
+					"postmancollection"
+				],
+				"extensions": [
+					".postman_collection.json"
+				],
+				"configuration": "./postman_collection-language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "postman_collection",
+				"scopeName": "source.postman_collection.json",
+				"path": "./syntaxes/collection.tmLanguage.json",
+				"embeddedLanguages": {
+					"meta.embedded.block.javascript": "source.js"
+				}
+			}
+		]
+	},
+	"__metadata": {
+		"id": "53c74598-e096-4f00-8c74-5e223a338794",
+		"publisherDisplayName": "xk0der",
+		"publisherId": "86cc274d-620e-41f3-a64d-1ebe0270f7e0"
+	}
 }
