@@ -21,17 +21,6 @@
                     ".postman_collection.json"
                 ],
                 "configuration": "./postman_collection-language-configuration.json"
-            },
-            {
-                "id": "postman_log",
-                "aliases": [
-                    "Postman Logs",
-                    "postmanlog"
-                ],
-                "extensions": [
-                    ".log"
-                ],
-                "configuration": "./postman_log-language-configuration.json"
             }
         ],
         "grammars": [
@@ -42,11 +31,6 @@
                 "embeddedLanguages": {
                     "meta.embedded.block.javascript": "source.js"
                 }
-            },
-            {
-                "language": "postman_log",
-                "scopeName": "source.postman_log",
-                "path": "./syntaxes/log.tmLanguage.json"
             }
         ]
     }
