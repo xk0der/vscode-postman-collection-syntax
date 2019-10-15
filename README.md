@@ -10,7 +10,7 @@ Just install this extension and open a [JSON export](https://learning.getpostman
 [Download Postman](https://www.getpostman.com/downloads/?xk0der)
 
 # Download from
-[Postam Collection Syntax Highlighter](https://marketplace.visualstudio.com/items?itemName=xk0der.vsc-postman-collection-syntax)
+[Postman Collection Syntax Highlighter](https://marketplace.visualstudio.com/items?itemName=xk0der.vsc-postman-collection-syntax)
 
 # You may also like
 [Postman Log Syntax Highlighter](https://marketplace.visualstudio.com/items?itemName=xk0der.vsc-postman-logs-syntax)
