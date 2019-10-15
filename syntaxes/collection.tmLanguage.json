@@ -43,6 +43,12 @@
 								},
 								{
 									"include": "#number"
+								},
+								{
+									"include": "#version"
+								},
+								{
+									"include": "#slash"
 								}
 							]
 						}
@@ -177,6 +183,9 @@
 						},
 						{
 							"include": "#jsbrackets"
+						},
+						{
+							"include": "#jssemicolon"
 						}
 					]
 				}
@@ -245,13 +254,39 @@
 				}
 			}
 		},
+		"jssemicolon": {
+			"match":";",
+			"captures": {
+				"0": {
+					"name":"support.type"
+				}
+			}
+		},
 		"jsstrings": {
 			"match": "\\\".*\\\"",
 			"captures": {
 				"0": {
-					"name": "string.quoted.double"
+					"name": "string.quoted.double",
+					"patterns": [
+						{
+							"include": "#jsbackslash"
+						}
+					]
 				}
 			}
+		},
+		"jsbackslash": {
+			"match": "\\\\",
+			"captures": {
+				"0": {
+					"name": "keyword.operator.new"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#jsbackslash"
+				}
+			]
 		},
 		"jsbrackets": {
 			"match": "(\\[|\\])|(\\(|\\))|({|})",
@@ -267,9 +302,27 @@
 				}
 			}
 		},
+		"version": {
+			"match": "\\b((v|ver|version)[ ]?[0-9]+(\\.[0-9])+)\\b",
+			"captures": { "1": {"name": "keyword.control"} }
+		},
 		"number": {
 			"match": "\\b([0-9]+(\\.[0-9])?)\\b",
 			"captures": { "1": {"name": "keyword.control"} }
+		}, 
+		"slash": {
+			"match": "(\\\\)|(//)|(/)",
+			"captures": {
+				"1": {
+					"name": "keyword.operator.new"
+				}, 
+				"2": {
+					"name": "constant.character.escape"
+				},
+				"3": {
+					"name": "constant.character.escape"
+				}
+			}
 		}
 	}
 }
